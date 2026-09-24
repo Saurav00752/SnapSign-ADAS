@@ -1,0 +1,13 @@
+# Virtual Environments
+venv/
+env/
+__pycache__/
+
+# Datasets
+data/
+
+# OS generated files
+.DS_Store
+
+# Note: We are NOT ignoring traffic_weights.pth because ResNet18 weights 
+# are ~45MB, which is safely under GitHub's 100MB limit. Judges need this file!
