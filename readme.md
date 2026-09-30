@@ -58,7 +58,7 @@ SnapSign-ADAS/
 ### 1. Install Dependencies
 Clone the repository and install the required packages:
 ```bash
-git clone https://github.com/yourusername/SnapSign-ADAS.git
+git clone https://github.com/Saurav00752/SnapSign-ADAS.git
 cd SnapSign-ADAS
 pip install -r requirements.txt
 ```
