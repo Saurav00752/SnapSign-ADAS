@@ -4,3 +4,4 @@ qai-hub
 onnxruntime
 opencv-python
 numpy
+PyQt5

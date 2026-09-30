@@ -5,6 +5,9 @@ from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 import os
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)
+
 class SnapSignNet(nn.Module):
     def __init__(self, num_classes=43):
         super(SnapSignNet, self).__init__()
@@ -44,8 +47,9 @@ def get_dataloaders(batch_size=64):
     print("Downloading and loading GTSRB dataset... (This may take a minute)")
     
     # PyTorch automatically downloads the dataset to a 'data' folder
-    train_dataset = datasets.GTSRB(root='../data', split='train', download=True, transform=transform)
-    test_dataset = datasets.GTSRB(root='../data', split='test', download=True, transform=transform)
+    data_root = os.path.join(REPO_ROOT, "data")
+    train_dataset = datasets.GTSRB(root=data_root, split='train', download=True, transform=transform)
+    test_dataset = datasets.GTSRB(root=data_root, split='test', download=True, transform=transform)
 
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=2)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=2)
@@ -85,8 +89,9 @@ def train_model(epochs=5):
     print("Training complete!")
     
     # Save the model
-    os.makedirs("../models", exist_ok=True)
-    save_path = "../models/snapsign_base.pth"
+    models_dir = os.path.join(REPO_ROOT, "models")
+    os.makedirs(models_dir, exist_ok=True)
+    save_path = os.path.join(models_dir, "snapsign_base.pth")
     torch.save(model.state_dict(), save_path)
     print(f"Model architecture and weights saved to {save_path}")
 

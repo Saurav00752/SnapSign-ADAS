@@ -39,7 +39,8 @@ SnapSign-ADAS/
 ├── src/
 │   ├── train.py                 # GTSRB PyTorch training script
 │   ├── compile_qai.py           # Qualcomm AI Hub submission script
-│   └── infer_qnn.py             # Real-time ONNX/QNN NPU inference script
+│   ├── infer_qnn.py                # Real-time ONNX/QNN NPU inference script
+│   └── frontend_app.py             # PyQt5 dashboard entry point
 ├── requirements.txt             # Python dependencies
 ├── .gitignore                   # Excludes datasets and virtual environments
 └── README.md                    # Project documentation
@@ -78,6 +79,16 @@ Run the ADAS simulation on a sample dashcam video or live webcam feed:
 python src/infer_qnn.py --video data/sample_dashcam.mp4
 ```
 *Note: The script automatically detects the Hexagon NPU via the `QNNExecutionProvider`.*
+
+To launch the PyQt5 dashboard:
+```bash
+python src/frontend_app.py
+```
+
+The included AI Hub download is an external-data ONNX bundle. The application
+extracts it automatically to `models/snapsign_optimized.onnx` on first launch.
+If QNN is unavailable, both the dashboard and CLI fall back to the CPU
+execution provider.
 
 ---
 

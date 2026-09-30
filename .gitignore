@@ -17,6 +17,7 @@ data/
 datasets/
 *.pth
 *.onnx
+models/*.data
 *.dlc
 *.mp4
 
