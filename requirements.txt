@@ -1,6 +1,6 @@
 torch
 torchvision
-streamlit
-opencv-python-headless
-pillow
-matplotlib
+qai-hub
+onnxruntime
+opencv-python
+numpy

@@ -1,13 +1,25 @@
-# Virtual Environments
-venv/
+# Environments
+.env
+.venv
 env/
-__pycache__/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
-# Datasets
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data and Models (Keep repo lightweight)
 data/
+datasets/
+*.pth
+*.onnx
+*.dlc
+*.mp4
 
 # OS generated files
 .DS_Store
-
-# Note: We are NOT ignoring traffic_weights.pth because ResNet18 weights 
-# are ~45MB, which is safely under GitHub's 100MB limit. Judges need this file!
+Thumbs.db
